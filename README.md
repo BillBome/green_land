@@ -1,6 +1,6 @@
 # green_land
 
-A new Flutter project.
+An adminstration app for a vegetable store Green Land that I developed for my school assignment.
 
 ## Getting Started
 
