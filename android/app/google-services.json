@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "597250421615",
+    "project_id": "greenland-ap",
+    "storage_bucket": "greenland-ap.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:597250421615:android:6ec0fedfcc9a837bdc2e9a",
+        "android_client_info": {
+          "package_name": "com.example.green_land"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDt2cx4R9-In31mwg0c__Vq8vJgZL3k0TM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
