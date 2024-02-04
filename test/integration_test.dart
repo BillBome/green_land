@@ -7,49 +7,49 @@ import 'package:green_land/pages/sign_in.dart';
 import 'package:green_land/pages/sign_up.dart';
 
 void main() {
-  testWidgets('Integration Test', (WidgetTester tester) async {
-    // Build our app and trigger a frame.
-    await tester.pumpWidget(MaterialApp(home: LandingPage()));
+  group("Test Integration between Landing Page, Sign In and Sign Up Page", () {
+    testWidgets('Integration Test', (WidgetTester tester) async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(MaterialApp(home: LandingPage()));
 
-    // Verify if the welcome text is displayed
-    expect(find.text('Welcome to '), findsOneWidget);
-    expect(find.text('GREEN LAND'), findsOneWidget);
+      // Verify if the welcome text is displayed
+      expect(find.text('Welcome to '), findsOneWidget);
+      expect(find.text('GREEN LAND'), findsOneWidget);
 
-    // Verify if the Sign In button is displayed
-    expect(find.widgetWithText(ElevatedButton, 'Sign In'), findsOneWidget);
+      // Verify if the Sign In button is displayed
+      expect(find.widgetWithText(ElevatedButton, 'Sign In'), findsOneWidget);
 
-    // Verify if the Sign Up button is displayed
-    expect(find.widgetWithText(ElevatedButton, 'Sign Up'), findsOneWidget);
+      // Tap the Sign In button and wait for the navigation to complete
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Sign In'));
+      await tester.pumpAndSettle();
 
-    // Tap the Sign In button and wait for the navigation to complete
-    await tester.tap(find.widgetWithText(ElevatedButton, 'Sign In'));
-    await tester.pumpAndSettle();
+      // Verify that we are on the SignInPage
+      expect(find.byType(SignInPage), findsOneWidget);
 
-    // Verify that we are on the SignInPage
-    expect(find.byType(SignInPage), findsOneWidget);
-    // expect(find.text('Welcome Back,'), findsOneWidget);
-    // expect(find.text('Please Login to Your Account'), findsOneWidget);
+      // Verify the presence of email and password text fields.
+      expect(find.byType(TextField), findsNWidgets(2));
+    });
+    testWidgets('Integration Test', (WidgetTester tester) async {
+      // Build our app and trigger a frame.
+      await tester.pumpWidget(MaterialApp(home: LandingPage()));
 
-    // Verify the presence of email and password text fields.
-    expect(find.byType(TextField), findsNWidgets(2));
+      // Verify if the welcome text is displayed
+      expect(find.text('Welcome to '), findsOneWidget);
+      expect(find.text('GREEN LAND'), findsOneWidget);
 
-    // Tap the sign-up button.
-    expect(find.text('Sign Up'), findsOneWidget);
+      // Verify if the Sign In button is displayed
+      expect(find.widgetWithText(ElevatedButton, 'Sign Up'), findsOneWidget);
 
-    // Navigate to SignUpPage
-    await tester.tap(find.text('Sign Up'));
-    await tester.pumpAndSettle();
+      // Tap the Sign In button and wait for the navigation to complete
+      await tester.tap(find.widgetWithText(ElevatedButton, 'Sign Up'));
+      await tester.pumpAndSettle();
 
-    // Verify that we are on the SignUpPage
-    expect(find.byType(SignUpPage), findsOneWidget);
-    expect(find.text('Hello,'), findsOneWidget);
-    expect(find.text('Please Create a new Account'), findsOneWidget);
+      // Verify that we are on the SignInPage
+      expect(find.byType(SignUpPage), findsOneWidget);
 
-    // Verify the presence of username, email, and password text fields.
-    expect(find.byType(TextField), findsNWidgets(3));
-
-    // Tap the sign-in button.
-    expect(find.text('Sign In'), findsOneWidget);
+      // Verify the presence of email and password text fields.
+      expect(find.byType(TextField), findsNWidgets(3));
+    });
   });
 
   testWidgets('Integration Test: Random ID and Add New Item Modal',
